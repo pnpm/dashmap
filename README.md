@@ -37,6 +37,8 @@ perfect stability. Though `dashmap` always stays at least 1 year behind the curr
 
 - `arbitrary` - Enables support for the `arbitrary` crate.
 
+- `nightly` - Lets a contended shard lock park on a WebAssembly target built with atomics, where it otherwise panics. Needs a nightly compiler for that target, and does nothing on any other.
+
 ## Contributing
 
 DashMap gladly accepts contributions!

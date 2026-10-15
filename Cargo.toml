@@ -18,6 +18,11 @@ all = ["raw-api", "typesize", "serde", "rayon", "arbitrary"]
 raw-api = []
 typesize = ["dep:typesize"]
 inline-more = ["hashbrown/inline-more"]
+# On a WebAssembly target with atomics, `parking_lot_core` compiles a parker
+# that can block only when this feature is on. Without it a contended shard
+# lock panics instead of parking. It is inert on every other target, and the
+# unstable compiler feature behind it is requested only where it applies.
+nightly = ["parking_lot_core/nightly"]
 
 [dependencies]
 lock_api = "0.4.12"
